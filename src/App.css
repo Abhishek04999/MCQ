@@ -1,38 +1,147 @@
-.App {
-  text-align: center;
+/* .Loginsignup .g-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 13px;
+  gap: 1rem;
+  padding: 0px 5px 0px 0px !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Loginsignup .g-img {
+  border: 1px solid lightgray;
+  padding: 4px;
+  background-color: lightblue;
+  padding: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Loginsignup .modal-wrapper input {
+  width: 300px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Loginsignup .modal-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.Loginsignup .form-login {
+  float: right;
+}
+
+.Loginsignup .modal-wrapper .login-header {
+  text-align: center;
+  font-size: 3.5ch;
+  font-weight: 700;
+}
+
+.Loginsignup .modal-wrapper .y-text {
+  color: #ffbf00;
+}
+
+.Loginsignup .modal-wrapper .para-login p {
+  font-size: 1.2ch;
+  font-weight: 100;
+}
+
+.Loginsignup .separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.Loginsignup .separator::before,
+.Loginsignup .separator::after {
+  content: "";
+  flex-grow: 1;
+  border-top: 1px solid #000;
+  height: 1px;
+  margin: 0 10px;
+  min-width: 10rem;
+  text-align: center;
+}
+
+.Loginsignup .separator-text {
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.Loginsignup .signup-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Loginsignup .g-login {
+  border-radius: 10px;
+  background-color: white;
+  border-color: lightgray;
+}
+
+.Loginsignup .modal-content a {
+  text-decoration: none;
+  color: rgb(43, 42, 42);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 100; 
+}
+ */
+
+ /* MCQ.JSX  STYLING */
+ body {
+  font-family: Arial, sans-serif;
+}
+
+div {
+  margin: 20px;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #4caf50;
   color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #45a049;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+  margin-bottom: 10px;
 }
+
+hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+/* END */
