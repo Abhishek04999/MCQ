@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-
+import { useLocation } from 'react-router-dom';
+import axios from 'axios'; 
 const AddMCQForm = () => {
-  const [subject, setSubject] = useState(''); // State for the selected subject
+
   const [questions, setQuestions] = useState([{ question: '', options: ['', '', '', ''], correctAnswer: '' }]);
+  const location = useLocation();
+  const subject = new URLSearchParams(location.search).get('subject');
+
 
   const handleButtonAction = (action) => {
     if (action === 'add') {
@@ -15,9 +19,7 @@ const AddMCQForm = () => {
     }
   };
 
-  const handleSubjectChange = (value) => {
-    setSubject(value);
-  };
+ 
 
   const handleQuestionChange = (index, value) => {
     const updatedQuestions = [...questions];
@@ -45,38 +47,30 @@ const AddMCQForm = () => {
     }
   };
 
-  const handleSubmit = () => {
-    // Create an object containing both subject and MCQs
+  const handleSubmit = async () => {
     const dataToSubmit = {
       subject: subject,
       mcqs: questions,
     };
 
-    // Implement the logic to save the data, e.g., send it to a server or store it in local storage
-    console.log('Data submitted:', dataToSubmit);
+    try {
+      // Make a POST request to the server to save MCQs
+      const response = await axios.post('http://localhost:3001/api/saveMCQs', dataToSubmit);
+      console.log('Data submitted:', response.data);
+    } catch (error) {
+      console.error('Error submitting data:', error);
+    }
   };
-
   return (
     <div>
       <div className="mb-3">
-        <label htmlFor="subject" className="form-label">
-          Select Subject
-        </label>
-        <select
-          className="form-select"
-          id="subject"
-          value={subject}
-          onChange={(e) => handleSubjectChange(e.target.value)}
-        >
-          <option value="">Select a Subject</option>
-          <option value="math">Math</option>
-          <option value="science">Science</option>
-          {/* Add more subjects as needed */}
-        </select>
+      <div className="form-control" id="subject">
+  Subject: {subject}
+</div>
       </div>
 
       {questions.map((mcq, index) => (
-        <div key={index}>
+        <div className='card' key={index}>
           <div className="mb-3">
             <button
               type="button"
@@ -98,7 +92,7 @@ const AddMCQForm = () => {
           <div id={`optionsContainer${index}`} className="mb-3">
             <h4>Options :</h4>
             {mcq.options.map((option, optionIndex) => (
-              <div key={optionIndex} className="mb-3">
+              <div key={optionIndex} className="mb-3" >
                 <label htmlFor={`option${index}_${optionIndex}`} className="form-label">
                   Option {optionIndex + 1}
                 </label>
@@ -148,4 +142,3 @@ const AddMCQForm = () => {
 };
 
 export default AddMCQForm;
-
